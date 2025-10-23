@@ -49,22 +49,6 @@ python -m http.server 8000
 5. Save and wait for deployment
 6. Access your playground at `https://yourusername.github.io/pubkylab/pubkylab.html`
 
-### Option 3: Deploy to Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
-
-1. Create a new project on Vercel
-2. Import your repository
-3. Set framework preset to "Other"
-4. Deploy!
-
-Alternatively, use Vercel CLI:
-
-```bash
-npm i -g vercel
-vercel --prod
-```
-
 ## 📖 Usage Guide
 
 ### 1. Generate a New User
@@ -189,35 +173,6 @@ No build process or dependencies needed!
 **Cons:**
 - Public only
 - Limited to static content
-
-### Vercel
-
-**Steps:**
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel --prod
-```
-
-**Pros:**
-- Instant deployment
-- Custom domains
-- Automatic HTTPS
-- Great performance
-
-**Cons:**
-- Requires Vercel account
-
-### Netlify
-
-Drag and drop `pubkylab.html` to [Netlify Drop](https://app.netlify.com/drop).
-
-**Pros:**
-- Simplest deployment
-- Free tier available
-- Instant updates
 
 ### Self-Hosted
 
