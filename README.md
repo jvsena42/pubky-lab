@@ -47,7 +47,7 @@ python -m http.server 8000
 3. Go to Settings → Pages
 4. Select "main" branch and root directory
 5. Save and wait for deployment
-6. Access your playground at `https://yourusername.github.io/pubkylab/pubkylab.html`
+6. Access your playground at `https://yourusername.github.io/pubky-lab`
 
 ## 📖 Usage Guide
 
