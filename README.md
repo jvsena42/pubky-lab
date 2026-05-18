@@ -109,6 +109,8 @@ Available log levels (from least to most verbose):
 - `info` - General information (default)
 - `debug` - Detailed debugging information
 
+Changing the log level reloads the page because the [Pubky SDK logger must be configured once at startup](https://github.com/pubky/pubky-core/tree/main/pubky-sdk/bindings/js/pkg#logging).
+
 ## 🏗️ Architecture
 
 PubkyLab is a single-page application built with:

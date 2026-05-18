@@ -7,7 +7,7 @@
     <script type="importmap">
     {
         "imports": {
-            "@synonymdev/pubky": "https://cdn.jsdelivr.net/npm/@synonymdev/pubky@0.6.0-rc.6/+esm"
+            "@synonymdev/pubky": "https://cdn.jsdelivr.net/npm/@synonymdev/pubky@0.7.0/+esm"
         }
     }
     </script>
@@ -483,6 +483,12 @@
 
         class PubkyLab {
             constructor() {
+                this.logLevel = this.loadLogLevel();
+                try {
+                    setLogLevel(this.logLevel);
+                } catch (error) {
+                    console.warn('Failed to configure Pubky SDK log level:', error);
+                }
                 this.pubky = new Pubky();
                 this.keypair = null;
                 this.signer = null;
@@ -491,9 +497,9 @@
             }
 
             init() {
+                document.getElementById('logLevel').value = this.logLevel;
                 this.log('info', 'PubkyLab initialized');
                 this.updateStatus('disconnected');
-                setLogLevel('info');
             }
 
             log(level, message, data = null) {
@@ -509,13 +515,21 @@
                 console.log(`[${level}]`, message, data);
             }
 
+            loadLogLevel() {
+                try {
+                    return localStorage.getItem('pubkylabLogLevel') || 'info';
+                } catch {
+                    return 'info';
+                }
+            }
+
             setLogLevel(level) {
                 try {
-                    setLogLevel(level);
-                    this.log('info', `Log level set to: ${level}`);
+                    localStorage.setItem('pubkylabLogLevel', level);
                 } catch (error) {
-                    this.log('error', `Failed to set log level: ${error.message}`);
+                    console.warn('Failed to save Pubky SDK log level:', error);
                 }
+                window.location.reload();
             }
 
             clearLogs() {
